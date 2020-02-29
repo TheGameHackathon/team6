@@ -8,3 +8,79 @@ export default class Field extends React.Component {
         );
     }
 }
+
+const field = [
+    [
+        {type: "Empty"},
+        {type: "Box"},
+        {type: "Empty"}
+    ],
+    [
+        {type: "Empty"},
+        {type: "Empty"},
+        {type: "Empty"}
+    ],
+    [
+        {type: "Empty"},
+        {type: "Box"},
+        {type: "Empty"}
+    ]
+]
+
+directions = {
+    'Up': {'x': 0, 'y': -1},
+    'Down': {'x': 0, 'y': 1},
+    'Left': {'x': -1, 'y': 0},
+    'Right': {'x': 1, 'y': 0}
+}
+
+function isInBounds(field, direction, playerPosition) {
+    if (directions[direction === undefined])
+        throw "Unknown direction";
+    const newPosition = {
+        x: playerPosition['x'] + directions[direction]['x'],
+        y: playerPosition['y'] + directions[direction]['y']
+    }
+    if (newPosition['x'] < 0 || newPosition['x'] >= field[0].length || 
+    newPosition['y'] < 0 || newPosition['y'] >= field.length)
+        return false;
+    return true;
+}
+
+function makeMove(field, direction, playerPosition) {
+    if (!isInBounds(field, direction, playerPosition))
+        return false
+    const nextPos = {
+        x: playerPosition['x'] + directions[direction]['x'],
+        y: playerPosition['y'] + directions[direction]['y']
+    }
+    const nextNextPos = {
+        x: nextPos['x'] + directions[direction]['x'],
+        y: nextPos['y'] + directions[direction]['y']
+    }
+    const currentCell = field[playerPosition.y][playerPosition.x];
+    const nextCell = field[nextPos['y']][nextPos['x']]
+    const nextNextCell = {
+        type: "Wall",
+        object: "Empty"
+    }
+    if (isInBounds(field, direction, nextPos))
+        nextNextCell = field[nextNextPos['y']][nextNextPos['x']]
+    if (nextCell.type === "Wall")
+        return false
+    else if (nextCell.object !== "Box") {
+        currentCell.object = "Empty";
+        nextCell.object = "Player";
+        return true
+    } else {
+        if (nextNextCell.type === "Wall" || nextNextCell.object === "Box")
+            return false;
+        else {
+            currentCell.object = "Empty";
+            nextCell.object = "Player";
+            nextNextCell.object = "Box";
+            return true;
+        }
+    }
+}
+
