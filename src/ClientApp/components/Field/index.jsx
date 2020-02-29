@@ -69,9 +69,21 @@ export default class Field extends React.Component {
                 return
         }
     }
+    
+    componentDidMount() {
+        const fieldJson = sendRequest()
+    }
 }
 
-<<<<<<< HEAD
+function sendRequest (url) {
+    return fetch(url).then(response => {
+        if (response.ok) {
+            return response.json()
+        }
+        return Promise.reject('${response.status}', '${response.statusText}')
+    })
+}
+
 const field = [
     [
         {type: "Empty"},
@@ -90,7 +102,7 @@ const field = [
     ]
 ]
 
-directions = {
+const directions = {
     'Up': {'x': 0, 'y': -1},
     'Down': {'x': 0, 'y': 1},
     'Left': {'x': -1, 'y': 0},
@@ -112,7 +124,7 @@ function isInBounds(field, direction, playerPosition) {
 
 function makeMove(field, direction, playerPosition) {
     if (!isInBounds(field, direction, playerPosition))
-        return false
+        return false;
     const nextPos = {
         x: playerPosition['x'] + directions[direction]['x'],
         y: playerPosition['y'] + directions[direction]['y']
@@ -123,7 +135,7 @@ function makeMove(field, direction, playerPosition) {
     }
     const currentCell = field[playerPosition.y][playerPosition.x];
     const nextCell = field[nextPos['y']][nextPos['x']]
-    const nextNextCell = {
+    let nextNextCell = {
         type: "Wall",
         object: "Empty"
     }
@@ -146,6 +158,3 @@ function makeMove(field, direction, playerPosition) {
         }
     }
 }
-
-=======
->>>>>>> d0648a3fefb61d7ff7869ec7195ffefd1f8356ca
