@@ -70,9 +70,7 @@ export default class Field extends React.Component {
         }
     }
     
-    componentDidMount() {
-        const fieldJson = sendRequest()
-    }
+
 }
 
 function sendRequest (url) {
