@@ -71,26 +71,50 @@ export default class Field extends React.Component {
     }
 }
 
-<<<<<<< HEAD
-const field = [
+let field = [
     [
-        {type: "Empty"},
-        {type: "Box"},
-        {type: "Empty"}
+        {
+            type: "Empty",
+            object: "Player"},
+        {  
+            type: "Empty",
+            object: "Box"
+        },
+        {  
+            type: "Spot",
+            object: "Empty"
+        },
     ],
     [
-        {type: "Empty"},
-        {type: "Empty"},
-        {type: "Empty"}
+        {
+            type: "Empty",
+            object: "Empty"
+        },
+        {
+            type: "Empty",
+            object: "Empty"
+        },
+        {
+            type: "Empty",
+            object: "Empty"
+        },
     ],
     [
-        {type: "Empty"},
-        {type: "Box"},
-        {type: "Empty"}
+        {
+            type: "Empty",
+            object: "Empty"},
+        {  
+            type: "Empty",
+            object: "Box"
+        },
+        {  
+            type: "Spot",
+            object: "Empty"
+        },
     ]
 ]
 
-directions = {
+const directions = {
     'Up': {'x': 0, 'y': -1},
     'Down': {'x': 0, 'y': 1},
     'Left': {'x': -1, 'y': 0},
@@ -123,7 +147,7 @@ function makeMove(field, direction, playerPosition) {
     }
     const currentCell = field[playerPosition.y][playerPosition.x];
     const nextCell = field[nextPos['y']][nextPos['x']]
-    const nextNextCell = {
+    let nextNextCell = {
         type: "Wall",
         object: "Empty"
     }
@@ -147,5 +171,3 @@ function makeMove(field, direction, playerPosition) {
     }
 }
 
-=======
->>>>>>> d0648a3fefb61d7ff7869ec7195ffefd1f8356ca
