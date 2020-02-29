@@ -69,6 +69,17 @@ export default class Field extends React.Component {
                 return
         }
     }
+    
+
+}
+
+function sendRequest (url) {
+    return fetch(url).then(response => {
+        if (response.ok) {
+            return response.json()
+        }
+        return Promise.reject('${response.status}', '${response.statusText}')
+    })
 }
 
 let field = [
@@ -136,7 +147,7 @@ function isInBounds(field, direction, playerPosition) {
 
 function makeMove(field, direction, playerPosition) {
     if (!isInBounds(field, direction, playerPosition))
-        return false
+        return false;
     const nextPos = {
         x: playerPosition['x'] + directions[direction]['x'],
         y: playerPosition['y'] + directions[direction]['y']
@@ -170,4 +181,3 @@ function makeMove(field, direction, playerPosition) {
         }
     }
 }
-

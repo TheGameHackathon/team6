@@ -29,6 +29,8 @@
     "@skbkontur/react-ui": "^1.9.0",
     "react": "15.6.1",
     "react-dom": "15.6.1",
-    "whatwg-fetch": "^2.0.4"
+    "whatwg-fetch": "^2.0.4",
+    "@skbkontur/react-ui": "latest",
+    "prop-types": "latest"
   }
 }
