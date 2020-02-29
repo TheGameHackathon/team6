@@ -45,6 +45,9 @@ export default class Field extends React.Component {
                 <Row/>
                 <Row/>
             </Gapped>
+            <script>
+                {window.addEventListener("keydown", this.handlerClick)};
+            </script>
         </div>);
     }
 
