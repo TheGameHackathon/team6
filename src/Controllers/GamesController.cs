@@ -28,8 +28,7 @@ namespace thegame.Controllers
             var stringCells = gameDataLoader.Load(levelNumber);
             var cells = parsingService.Parse(stringCells);
 
-            Game game = new Game(cells, stringCells[0].Length, stringCells.Length);
-            
+            Game game = new Game(cells, stringCells[0].Length, stringCells.Length, levelNumber);
             GamesRepo.AddGame(game);
 
             return new ObjectResult(game.GameField);
@@ -40,6 +39,13 @@ namespace thegame.Controllers
         public IActionResult Levels()
         {
             return new ObjectResult(gameDataLoader.GetLevelsAmount());
+        }
+
+        [Route("leaderboard")]
+        [HttpGet]
+        public IActionResult Leaderboard()
+        {
+            return new ObjectResult(GamesRepo.GetTable());
         }
     }
 }

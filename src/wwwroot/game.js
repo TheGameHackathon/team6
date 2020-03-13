@@ -167,9 +167,32 @@ async function initLevelsCount() {
         });
 }
 
+async function leaderBoard() {
+
+    fetch(`/api/games/leaderboard`,
+        {
+            method: "GET"
+        })
+        .then(handleApiErrors)
+        .then(data => {
+            var table = document.getElementById("localleaderboard");
+            Object.entries(data).forEach(([key, value]) => {
+                var line = document.createElement("tr");
+                var levelNumber = document.createElement('td');
+                var score = document.createElement('td');
+                levelNumber.innerHTML = key;
+                score.innerHTML = value;
+                line.appendChild(levelNumber);
+                line.appendChild(score);
+                table.appendChild(line);
+            });
+        });
+}
+
 function initializePage() {
     const gameId = window.location.pathname.substring(1);
     initLevelsCount();
+    leaderBoard();
     // use gameId if you want
     startButton.addEventListener("click", e => {
         startgameOverlay.classList.toggle("hidden", true);
