@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Fezoo\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Fezoo\\.nuget\\packages"
+    ]
+  }
+}

@@ -1,5 +1,7 @@
 using System;
+using System.Diagnostics;
 using System.Linq;
+using System.Reflection.PortableExecutable;
 using Microsoft.AspNetCore.Mvc;
 using thegame.Models;
 using thegame.Providers;
@@ -14,13 +16,13 @@ namespace thegame.Controllers
 
         public MovesController(IMoveProvider provider)
         {
-            this.moveProvider = provider;
+            moveProvider = provider;
         }
 
         [HttpPost]
         public IActionResult Moves(Guid gameId, [FromBody]UserInputForMovesPost userInput)
         {
-            var game = GamesRepo.CurrentGame;
+            var game = GamesRepo.GetGame(gameId);
             game.MovePlayer(moveProvider.GetMovement(userInput));
             return new ObjectResult(game.GameField);
         }

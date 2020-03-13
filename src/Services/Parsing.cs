@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 using thegame.Models;
 
 namespace thegame.Services
@@ -18,13 +19,12 @@ namespace thegame.Services
             var width = stringCells[0].Length;
 
             var cells = new CellDto[height * width];
-            var index = 0;
-            for (var i = 0; i < stringCells.Length; i++)
+            for (var i = 0; i < height; i++)
             {
-                for (var j = 0; j < stringCells[i].Length; j++)
+                for (var j = 0; j < width; j++)
                 {
-                    cells[index] = CheckCell(stringCells[i][j], i + j, j, i);
-                    index++;
+                    var index = i * width + j;
+                    cells[index] = CheckCell(stringCells[i][j], index, j, i);
                 }
             }
 
@@ -33,23 +33,7 @@ namespace thegame.Services
 
         private static CellDto CheckCell(char cell, int id, int x, int y)
         {
-            switch (cell)
-            {
-                case '.':
-                    return new CellDto(id.ToString(), new Vec(x, y), "field", "", 0);
-                case '#':
-                    return new CellDto(id.ToString(), new Vec(x, y), "wall", "", 10);
-                case 'o':
-                    return new CellDto(id.ToString(), new Vec(x, y), "player", "", 10);
-                case '*':
-                    return new CellDto(id.ToString(), new Vec(x, y), "box", "", 10);
-                case 'x':
-                    return new CellDto(id.ToString(), new Vec(x, y), "target", "", 5);
-                case '@':
-                    return new CellDto(id.ToString(), new Vec(x, y), "boxOnTarget", "", 10);
-                default:
-                    throw  new ArgumentException("invalid cell");
-            }
+            return new CellDto(id.ToString(), new Vec(x, y), "", 0, cell);
         }
 
     }
