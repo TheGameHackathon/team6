@@ -33,7 +33,23 @@ namespace thegame.Services
 
         private static CellDto CheckCell(char cell, int id, int x, int y)
         {
-            return new CellDto(id.ToString(), new Vec(x, y), "", 0, cell);
+            switch (cell)
+            {
+                case '.':
+                    return new CellDto(id.ToString(), new Vec(x, y), "field", "", 0);
+                case '#':
+                    return new CellDto(id.ToString(), new Vec(x, y), "wall", "", 10);
+                case 'o':
+                    return new CellDto(id.ToString(), new Vec(x, y), "player", "", 10);
+                case '*':
+                    return new CellDto(id.ToString(), new Vec(x, y), "box", "", 10);
+                case 'x':
+                    return new CellDto(id.ToString(), new Vec(x, y), "target", "", 5);
+                case '@':
+                    return new CellDto(id.ToString(), new Vec(x, y), "boxOnTarget", "", 10);
+                default:
+                    throw  new ArgumentException("invalid cell");
+            }
         }
 
     }
