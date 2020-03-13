@@ -24,4 +24,10 @@
     <Folder Include="GameData\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="GameData\1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
