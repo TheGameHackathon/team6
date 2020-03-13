@@ -11,7 +11,7 @@ namespace thegame.Models
         public static CellType GetCellType(this CellDto cell)
         {
             object result;
-            if (Enum.TryParse(typeof(CellType), cell.Type, ignoreCase: true, out result))
+            if (Enum.TryParse(typeof(CellType), cell.Type, true, out result))
             {
                 return (CellType)result;
             }
