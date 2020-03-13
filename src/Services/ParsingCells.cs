@@ -1,13 +1,15 @@
 ﻿using System;
-using Microsoft.EntityFrameworkCore.Query.Internal;
 using thegame.Models;
 
 namespace thegame.Services
 {
-    public static class Parsing
+    public class ParsingCells : IParsingCellsService
     {
+        public ParsingCells()
+        {
+        }
 
-        public static CellDto[] ParsingCells(this string[] stringCells)
+        public CellDto[] Parse(string[] stringCells)
         {
             if(stringCells == null)
                 throw  new NullReferenceException(nameof(stringCells));
@@ -31,7 +33,7 @@ namespace thegame.Services
             return cells;
         }
 
-        private static CellDto CheckCell(char cell, int id, int x, int y)
+        private CellDto CheckCell(char cell, int id, int x, int y)
         {
             return new CellDto(id.ToString(), new Vec(x, y), "", 0, cell);
         }
