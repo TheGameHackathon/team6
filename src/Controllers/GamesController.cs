@@ -11,17 +11,19 @@ namespace thegame.Controllers
     public class GamesController : Controller
     {
         private IGameDataLoader gameDataLoader;
+        private IParsingCellsService parsingService;
 
-        public GamesController(IGameDataLoader gameDataLoader)
+        public GamesController(IGameDataLoader gameDataLoader, IParsingCellsService parsingService)
         {
             this.gameDataLoader = gameDataLoader;
+            this.parsingService = parsingService;
         }
 
         [HttpPost]
         public IActionResult Index([FromBody] int levelNumber = 1)
         {
             var stringCells = gameDataLoader.Load(levelNumber);
-            var cells = stringCells.ParsingCells();
+            var cells = parsingService.Parse(stringCells);
 
             Game game = new Game(cells, stringCells[0].Length, stringCells.Length);
             GamesRepo.AddGame(game);
