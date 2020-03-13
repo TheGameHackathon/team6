@@ -9,20 +9,9 @@ namespace thegame.Models
 {
     public static class Extensions
     {
-        public static BlockType GetBlockType(this CellDto cell)
-        {
-            return cell.BlockType;
-            //    if (Enum.TryParse(typeof(BlockType), cell.Type, ignoreCase: true, out object result))
-            //    {
-            //        return (CellType)result;
-            //    }
-            //    return CellType.Field;
-            //}
-        }
-
         public static CellDto GetPlayer(this GameDto game)
         {
-            return game.Cells.FirstOrDefault((CellDto cell) => cell.GetBlockType() == BlockType.Player);
+            return game.Cells.FirstOrDefault(cell => cell.BlockType == BlockType.Player);
         }
 
         public static void MovePlayer(this GameDto game, Vec movement)
@@ -32,6 +21,29 @@ namespace thegame.Models
             {
                 playerCell.Pos += movement;
             }
+        }
+
+        public static bool IsFinished(this GameDto game)
+        {
+            if(game == null)
+                throw new ArgumentNullException("Wrong game parameter.");
+
+            return CellsWithType(game, CellType.Target).All(cell => cell.BlockType == BlockType.Box);
+        }
+
+        public static IEnumerable<CellDto> EmptyCells(this GameDto game)
+        {
+            return CellsWithBlock(game, BlockType.Empty);
+        }
+
+        public static IEnumerable<CellDto> CellsWithBlock(this GameDto game, BlockType blockType)
+        {
+            return game.Cells.Where(cell => cell.BlockType == blockType);
+        }
+
+        public static IEnumerable<CellDto> CellsWithType(this GameDto game, CellType cellType)
+        {
+            return game.Cells.Where(cell => cell.CellType == cellType);
         }
     }
 }
