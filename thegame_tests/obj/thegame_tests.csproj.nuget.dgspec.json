@@ -1,26 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\source\\repos\\Campus\\Hackathon\\thegame_tests\\thegame_tests.csproj": {}
+    "C:\\Users\\Fezoo\\Repositories\\hackaton\\team6\\thegame_tests\\thegame_tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\source\\repos\\Campus\\Hackathon\\src\\thegame.csproj": {
+    "C:\\Users\\Fezoo\\Repositories\\hackaton\\team6\\src\\thegame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\source\\repos\\Campus\\Hackathon\\src\\thegame.csproj",
+        "projectUniqueName": "C:\\Users\\Fezoo\\Repositories\\hackaton\\team6\\src\\thegame.csproj",
         "projectName": "thegame",
-        "projectPath": "C:\\Users\\User\\source\\repos\\Campus\\Hackathon\\src\\thegame.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\source\\repos\\Campus\\Hackathon\\src\\obj\\",
+        "projectPath": "C:\\Users\\Fezoo\\Repositories\\hackaton\\team6\\src\\thegame.csproj",
+        "packagesPath": "C:\\Users\\Fezoo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Fezoo\\Repositories\\hackaton\\team6\\src\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Fezoo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.1"
@@ -68,23 +63,18 @@
         }
       }
     },
-    "C:\\Users\\User\\source\\repos\\Campus\\Hackathon\\thegame_tests\\thegame_tests.csproj": {
+    "C:\\Users\\Fezoo\\Repositories\\hackaton\\team6\\thegame_tests\\thegame_tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\source\\repos\\Campus\\Hackathon\\thegame_tests\\thegame_tests.csproj",
+        "projectUniqueName": "C:\\Users\\Fezoo\\Repositories\\hackaton\\team6\\thegame_tests\\thegame_tests.csproj",
         "projectName": "thegame_tests",
-        "projectPath": "C:\\Users\\User\\source\\repos\\Campus\\Hackathon\\thegame_tests\\thegame_tests.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\source\\repos\\Campus\\Hackathon\\thegame_tests\\obj\\",
+        "projectPath": "C:\\Users\\Fezoo\\Repositories\\hackaton\\team6\\thegame_tests\\thegame_tests.csproj",
+        "packagesPath": "C:\\Users\\Fezoo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Fezoo\\Repositories\\hackaton\\team6\\thegame_tests\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Fezoo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -96,8 +86,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\User\\source\\repos\\Campus\\Hackathon\\src\\thegame.csproj": {
-                "projectPath": "C:\\Users\\User\\source\\repos\\Campus\\Hackathon\\src\\thegame.csproj"
+              "C:\\Users\\Fezoo\\Repositories\\hackaton\\team6\\src\\thegame.csproj": {
+                "projectPath": "C:\\Users\\Fezoo\\Repositories\\hackaton\\team6\\src\\thegame.csproj"
               }
             }
           }
@@ -111,6 +101,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "FakeItEasy": {
+              "target": "Package",
+              "version": "[2.3.1, )"
+            },
             "FluentAssertions": {
               "target": "Package",
               "version": "[4.17.0, )"
@@ -125,7 +119,7 @@
             },
             "NUnit": {
               "target": "Package",
-              "version": "[3.5.0, )"
+              "version": "[3.12.0, )"
             },
             "NUnit3TestAdapter": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

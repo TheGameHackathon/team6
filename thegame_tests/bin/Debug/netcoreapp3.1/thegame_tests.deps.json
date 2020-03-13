@@ -8,10 +8,11 @@
     ".NETCoreApp,Version=v3.1": {
       "thegame_tests/1.0.0": {
         "dependencies": {
+          "FakeItEasy": "2.3.1",
           "FluentAssertions": "4.17.0",
           "JetBrains.dotMemoryUnit": "3.1.20200127.214830",
           "Microsoft.NET.Test.Sdk": "16.5.0",
-          "NUnit": "3.5.0",
+          "NUnit": "3.12.0",
           "NUnit3TestAdapter": "3.16.1",
           "thegame": "1.0.0"
         },
@@ -19,9 +20,17 @@
           "thegame_tests.dll": {}
         }
       },
+      "FakeItEasy/2.3.1": {
+        "runtime": {
+          "lib/net40/FakeItEasy.dll": {
+            "assemblyVersion": "2.3.1.0",
+            "fileVersion": "2.3.1.0"
+          }
+        }
+      },
       "FluentAssertions/4.17.0": {
         "dependencies": {
-          "NETStandard.Library": "1.6.1",
+          "NETStandard.Library": "2.0.0",
           "System.Reflection.TypeExtensions": "4.3.0"
         },
         "runtime": {
@@ -107,7 +116,7 @@
       },
       "Microsoft.ApplicationInsights/2.4.0": {
         "dependencies": {
-          "NETStandard.Library": "1.6.1",
+          "NETStandard.Library": "2.0.0",
           "System.Diagnostics.DiagnosticSource": "4.5.1",
           "System.Diagnostics.StackTrace": "4.3.0"
         },
@@ -127,7 +136,7 @@
           "Microsoft.Extensions.Configuration.Json": "2.1.1",
           "Microsoft.Extensions.DiagnosticAdapter": "2.1.0",
           "Microsoft.Extensions.Logging.Abstractions": "2.1.1",
-          "NETStandard.Library": "1.6.1",
+          "NETStandard.Library": "2.0.0",
           "System.Net.NameResolution": "4.3.0",
           "System.Text.Encodings.Web": "4.5.0"
         },
@@ -142,7 +151,7 @@
         "dependencies": {
           "Microsoft.ApplicationInsights": "2.4.0",
           "Microsoft.Extensions.PlatformAbstractions": "1.1.0",
-          "NETStandard.Library": "1.6.1",
+          "NETStandard.Library": "2.0.0",
           "System.Diagnostics.DiagnosticSource": "4.5.1",
           "System.Diagnostics.StackTrace": "4.3.0"
         },
@@ -1653,7 +1662,7 @@
           "Microsoft.Azure.KeyVault.WebKey": "2.0.7",
           "Microsoft.Rest.ClientRuntime": "2.3.8",
           "Microsoft.Rest.ClientRuntime.Azure": "3.3.7",
-          "NETStandard.Library": "1.6.1",
+          "NETStandard.Library": "2.0.0",
           "Newtonsoft.Json": "11.0.2",
           "System.Net.Http": "4.3.0"
         },
@@ -1667,7 +1676,7 @@
       "Microsoft.Azure.KeyVault.WebKey/2.0.7": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.0.0",
-          "NETStandard.Library": "1.6.1",
+          "NETStandard.Library": "2.0.0",
           "Newtonsoft.Json": "11.0.2",
           "System.Collections": "4.3.0",
           "System.Collections.Concurrent": "4.3.0",
@@ -1685,7 +1694,7 @@
       "Microsoft.Azure.Services.AppAuthentication/1.0.1": {
         "dependencies": {
           "Microsoft.IdentityModel.Clients.ActiveDirectory": "3.14.2",
-          "NETStandard.Library": "1.6.1",
+          "NETStandard.Library": "2.0.0",
           "System.Diagnostics.Process": "4.3.0"
         },
         "runtime": {
@@ -2521,7 +2530,7 @@
       },
       "Microsoft.Extensions.PlatformAbstractions/1.1.0": {
         "dependencies": {
-          "NETStandard.Library": "1.6.1",
+          "NETStandard.Library": "2.0.0",
           "System.Reflection.TypeExtensions": "4.3.0"
         },
         "runtime": {
@@ -2558,7 +2567,7 @@
       },
       "Microsoft.IdentityModel.Clients.ActiveDirectory/3.14.2": {
         "dependencies": {
-          "NETStandard.Library": "1.6.1",
+          "NETStandard.Library": "2.0.0",
           "System.Runtime.Serialization.Json": "4.0.2",
           "System.Runtime.Serialization.Primitives": "4.3.0"
         },
@@ -2575,7 +2584,7 @@
       },
       "Microsoft.IdentityModel.Logging/5.2.0": {
         "dependencies": {
-          "NETStandard.Library": "1.6.1",
+          "NETStandard.Library": "2.0.0",
           "System.Diagnostics.Tracing": "4.3.0",
           "System.Globalization": "4.3.0",
           "System.IO": "4.3.0",
@@ -2592,7 +2601,7 @@
         "dependencies": {
           "Microsoft.IdentityModel.Logging": "5.2.0",
           "Microsoft.IdentityModel.Tokens": "5.2.0",
-          "NETStandard.Library": "1.6.1",
+          "NETStandard.Library": "2.0.0",
           "System.Collections.Specialized": "4.3.0",
           "System.Diagnostics.Contracts": "4.3.0",
           "System.Net.Http": "4.3.0"
@@ -2607,7 +2616,7 @@
       "Microsoft.IdentityModel.Protocols.OpenIdConnect/5.2.0": {
         "dependencies": {
           "Microsoft.IdentityModel.Protocols": "5.2.0",
-          "NETStandard.Library": "1.6.1",
+          "NETStandard.Library": "2.0.0",
           "Newtonsoft.Json": "11.0.2",
           "System.Dynamic.Runtime": "4.3.0",
           "System.IdentityModel.Tokens.Jwt": "5.2.0"
@@ -2624,7 +2633,7 @@
           "Microsoft.IdentityModel.Protocols": "5.2.0",
           "Microsoft.IdentityModel.Tokens.Saml": "5.2.0",
           "Microsoft.IdentityModel.Xml": "5.2.0",
-          "NETStandard.Library": "1.6.1",
+          "NETStandard.Library": "2.0.0",
           "System.Xml.XmlDocument": "4.3.0"
         },
         "runtime": {
@@ -2637,7 +2646,7 @@
       "Microsoft.IdentityModel.Tokens/5.2.0": {
         "dependencies": {
           "Microsoft.IdentityModel.Logging": "5.2.0",
-          "NETStandard.Library": "1.6.1",
+          "NETStandard.Library": "2.0.0",
           "Newtonsoft.Json": "11.0.2",
           "System.Collections": "4.3.0",
           "System.Diagnostics.Tools": "4.3.0",
@@ -2663,7 +2672,7 @@
         "dependencies": {
           "Microsoft.IdentityModel.Tokens": "5.2.0",
           "Microsoft.IdentityModel.Xml": "5.2.0",
-          "NETStandard.Library": "1.6.1"
+          "NETStandard.Library": "2.0.0"
         },
         "runtime": {
           "lib/netstandard1.4/Microsoft.IdentityModel.Tokens.Saml.dll": {
@@ -2675,7 +2684,7 @@
       "Microsoft.IdentityModel.Xml/5.2.0": {
         "dependencies": {
           "Microsoft.IdentityModel.Tokens": "5.2.0",
-          "NETStandard.Library": "1.6.1"
+          "NETStandard.Library": "2.0.0"
         },
         "runtime": {
           "lib/netstandard1.4/Microsoft.IdentityModel.Xml.dll": {
@@ -2706,7 +2715,7 @@
       "Microsoft.NETCore.Targets/1.1.0": {},
       "Microsoft.Rest.ClientRuntime/2.3.8": {
         "dependencies": {
-          "NETStandard.Library": "1.6.1",
+          "NETStandard.Library": "2.0.0",
           "Newtonsoft.Json": "11.0.2"
         },
         "runtime": {
@@ -2719,7 +2728,7 @@
       "Microsoft.Rest.ClientRuntime.Azure/3.3.7": {
         "dependencies": {
           "Microsoft.Rest.ClientRuntime": "2.3.8",
-          "NETStandard.Library": "1.6.1",
+          "NETStandard.Library": "2.0.0",
           "Newtonsoft.Json": "11.0.2"
         },
         "runtime": {
@@ -3002,52 +3011,9 @@
           "System.Security.Principal.Windows": "4.5.1"
         }
       },
-      "NETStandard.Library/1.6.1": {
+      "NETStandard.Library/2.0.0": {
         "dependencies": {
-          "Microsoft.NETCore.Platforms": "2.0.0",
-          "Microsoft.Win32.Primitives": "4.3.0",
-          "System.AppContext": "4.3.0",
-          "System.Collections": "4.3.0",
-          "System.Collections.Concurrent": "4.3.0",
-          "System.Console": "4.3.0",
-          "System.Diagnostics.Debug": "4.3.0",
-          "System.Diagnostics.Tools": "4.3.0",
-          "System.Diagnostics.Tracing": "4.3.0",
-          "System.Globalization": "4.3.0",
-          "System.Globalization.Calendars": "4.3.0",
-          "System.IO": "4.3.0",
-          "System.IO.Compression": "4.3.0",
-          "System.IO.Compression.ZipFile": "4.3.0",
-          "System.IO.FileSystem": "4.3.0",
-          "System.IO.FileSystem.Primitives": "4.3.0",
-          "System.Linq": "4.3.0",
-          "System.Linq.Expressions": "4.3.0",
-          "System.Net.Http": "4.3.0",
-          "System.Net.Primitives": "4.3.0",
-          "System.Net.Sockets": "4.3.0",
-          "System.ObjectModel": "4.3.0",
-          "System.Reflection": "4.3.0",
-          "System.Reflection.Extensions": "4.3.0",
-          "System.Reflection.Primitives": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0",
-          "System.Runtime.Extensions": "4.3.0",
-          "System.Runtime.Handles": "4.3.0",
-          "System.Runtime.InteropServices": "4.3.0",
-          "System.Runtime.InteropServices.RuntimeInformation": "4.3.0",
-          "System.Runtime.Numerics": "4.3.0",
-          "System.Security.Cryptography.Algorithms": "4.3.0",
-          "System.Security.Cryptography.Encoding": "4.3.0",
-          "System.Security.Cryptography.Primitives": "4.3.0",
-          "System.Security.Cryptography.X509Certificates": "4.3.0",
-          "System.Text.Encoding": "4.3.0",
-          "System.Text.Encoding.Extensions": "4.3.0",
-          "System.Text.RegularExpressions": "4.3.0",
-          "System.Threading": "4.3.0",
-          "System.Threading.Tasks": "4.3.0",
-          "System.Threading.Timer": "4.3.0",
-          "System.Xml.ReaderWriter": "4.3.0",
-          "System.Xml.XDocument": "4.3.0"
+          "Microsoft.NETCore.Platforms": "2.0.0"
         }
       },
       "Newtonsoft.Json/11.0.2": {
@@ -3060,7 +3026,7 @@
       },
       "Newtonsoft.Json.Bson/1.0.1": {
         "dependencies": {
-          "NETStandard.Library": "1.6.1",
+          "NETStandard.Library": "2.0.0",
           "Newtonsoft.Json": "11.0.2"
         },
         "runtime": {
@@ -3078,11 +3044,14 @@
           }
         }
       },
-      "NUnit/3.5.0": {
+      "NUnit/3.12.0": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.0"
+        },
         "runtime": {
-          "lib/net45/nunit.framework.dll": {
-            "assemblyVersion": "3.5.0.0",
-            "fileVersion": "3.5.0.0"
+          "lib/netstandard2.0/nunit.framework.dll": {
+            "assemblyVersion": "3.12.0.0",
+            "fileVersion": "3.12.0.0"
           }
         }
       },
@@ -3229,7 +3198,7 @@
       },
       "SQLitePCLRaw.core/1.1.11": {
         "dependencies": {
-          "NETStandard.Library": "1.6.1"
+          "NETStandard.Library": "2.0.0"
         },
         "runtime": {
           "lib/netstandard1.1/SQLitePCLRaw.core.dll": {
@@ -3307,7 +3276,7 @@
       },
       "SQLitePCLRaw.provider.e_sqlite3.netstandard11/1.1.11": {
         "dependencies": {
-          "NETStandard.Library": "1.6.1",
+          "NETStandard.Library": "2.0.0",
           "SQLitePCLRaw.core": "1.1.11"
         },
         "runtime": {
@@ -3319,7 +3288,7 @@
       },
       "StackExchange.Redis.StrongName/1.2.6": {
         "dependencies": {
-          "NETStandard.Library": "1.6.1",
+          "NETStandard.Library": "2.0.0",
           "System.Collections": "4.3.0",
           "System.Collections.Concurrent": "4.3.0",
           "System.Collections.NonGeneric": "4.3.0",
@@ -3595,7 +3564,7 @@
       "System.IdentityModel.Tokens.Jwt/5.2.0": {
         "dependencies": {
           "Microsoft.IdentityModel.Tokens": "5.2.0",
-          "NETStandard.Library": "1.6.1",
+          "NETStandard.Library": "2.0.0",
           "Newtonsoft.Json": "11.0.2"
         },
         "runtime": {
@@ -3607,7 +3576,7 @@
       },
       "System.Interactive.Async/3.1.1": {
         "dependencies": {
-          "NETStandard.Library": "1.6.1"
+          "NETStandard.Library": "2.0.0"
         },
         "runtime": {
           "lib/netstandard1.3/System.Interactive.Async.dll": {
@@ -3642,19 +3611,6 @@
           "System.Threading.Tasks": "4.3.0",
           "runtime.native.System": "4.3.0",
           "runtime.native.System.IO.Compression": "4.3.0"
-        }
-      },
-      "System.IO.Compression.ZipFile/4.3.0": {
-        "dependencies": {
-          "System.Buffers": "4.5.0",
-          "System.IO": "4.3.0",
-          "System.IO.Compression": "4.3.0",
-          "System.IO.FileSystem": "4.3.0",
-          "System.IO.FileSystem.Primitives": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0",
-          "System.Runtime.Extensions": "4.3.0",
-          "System.Text.Encoding": "4.3.0"
         }
       },
       "System.IO.FileSystem/4.3.0": {
@@ -4414,7 +4370,7 @@
       "WindowsAzure.Storage/8.1.4": {
         "dependencies": {
           "Microsoft.Data.OData": "5.8.2",
-          "NETStandard.Library": "1.6.1",
+          "NETStandard.Library": "2.0.0",
           "Newtonsoft.Json": "11.0.2",
           "System.Spatial": "5.8.2"
         },
@@ -4440,6 +4396,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "FakeItEasy/2.3.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AcSzJDC2inc+uAicZCecVV0oQz5OUlzryBVndZnwE9ADNhMHfVqc56M+RIVdYnaeLtGPtgZYCPyZ8jbdeWPYmA==",
+      "path": "fakeiteasy/2.3.1",
+      "hashPath": "fakeiteasy.2.3.1.nupkg.sha512"
     },
     "FluentAssertions/4.17.0": {
       "type": "package",
@@ -5827,12 +5790,12 @@
       "path": "microsoft.win32.registry/4.5.0",
       "hashPath": "microsoft.win32.registry.4.5.0.nupkg.sha512"
     },
-    "NETStandard.Library/1.6.1": {
+    "NETStandard.Library/2.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-WcSp3+vP+yHNgS8EV5J7pZ9IRpeDuARBPN28by8zqff1wJQXm26PVU8L3/fYLBJVU7BtDyqNVWq2KlCVvSSR4A==",
-      "path": "netstandard.library/1.6.1",
-      "hashPath": "netstandard.library.1.6.1.nupkg.sha512"
+      "sha512": "sha512-7jnbRU+L08FXKMxqUflxEXtVymWvNOrS8yHgu9s6EM8Anr6T/wIX4nZ08j/u3Asz+tCufp3YVwFSEvFTPYmBPA==",
+      "path": "netstandard.library/2.0.0",
+      "hashPath": "netstandard.library.2.0.0.nupkg.sha512"
     },
     "Newtonsoft.Json/11.0.2": {
       "type": "package",
@@ -5855,12 +5818,12 @@
       "path": "nuget.frameworks/5.0.0",
       "hashPath": "nuget.frameworks.5.0.0.nupkg.sha512"
     },
-    "NUnit/3.5.0": {
+    "NUnit/3.12.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-z/03NfC+ci3/OzlIlClH+nd0LZ99OU3wS74nAtLVnPo1oq6nvd+CGxTHZAc8n8xxDLeLMofZ8AjahxlROEhf/Q==",
-      "path": "nunit/3.5.0",
-      "hashPath": "nunit.3.5.0.nupkg.sha512"
+      "sha512": "sha512-3oJTrcUcT9wmweBUwgUf0f1XIYy6RZq2ziV+RM95HMKAJGsHPN2i3MKK1dAPvDPMRLz799Llj4eyu/STB9Q7OA==",
+      "path": "nunit/3.12.0",
+      "hashPath": "nunit.3.12.0.nupkg.sha512"
     },
     "NUnit3TestAdapter/3.16.1": {
       "type": "package",
@@ -6281,13 +6244,6 @@
       "sha512": "sha512-YHndyoiV90iu4iKG115ibkhrG+S3jBm8Ap9OwoUAzO5oPDAWcr0SFwQFm0HjM8WkEZWo0zvLTyLmbvTkW1bXgg==",
       "path": "system.io.compression/4.3.0",
       "hashPath": "system.io.compression.4.3.0.nupkg.sha512"
-    },
-    "System.IO.Compression.ZipFile/4.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-G4HwjEsgIwy3JFBduZ9quBkAu+eUwjIdJleuNSgmUojbH6O3mlvEIme+GHx/cLlTAPcrnnL7GqvB9pTlWRfhOg==",
-      "path": "system.io.compression.zipfile/4.3.0",
-      "hashPath": "system.io.compression.zipfile.4.3.0.nupkg.sha512"
     },
     "System.IO.FileSystem/4.3.0": {
       "type": "package",

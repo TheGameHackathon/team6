@@ -348,3 +348,5 @@ C:\Users\Fezoo\Repositories\hackaton\team6\thegame_tests\bin\Debug\netcoreapp3.1
 C:\Users\Fezoo\Repositories\hackaton\team6\thegame_tests\bin\Debug\netcoreapp3.1\thegame.dll
 C:\Users\Fezoo\Repositories\hackaton\team6\thegame_tests\bin\Debug\netcoreapp3.1\thegame.pdb
 C:\Users\Fezoo\Repositories\hackaton\team6\thegame_tests\bin\Debug\netcoreapp3.1\nunit.framework.dll
+C:\Users\Fezoo\Repositories\hackaton\team6\thegame_tests\bin\Debug\netcoreapp3.1\GameData\2.txt
+C:\Users\Fezoo\Repositories\hackaton\team6\thegame_tests\bin\Debug\netcoreapp3.1\FakeItEasy.dll
