@@ -19,6 +19,7 @@ namespace thegame.Services
         {
             GameField.MovePlayer(movement);
             GameField.IsFinished = GameField.IsFinished();
+            GameField.Score++;
         }
     }
 }
