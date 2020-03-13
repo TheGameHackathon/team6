@@ -12,14 +12,12 @@ namespace thegame.Controllers
         [HttpPost]
         public IActionResult Index()
         {
-            //GamesRepo.CurrentGame = new TestData();
-            //return new ObjectResult(GamesRepo.CurrentGame.GameField);
             var stringCells = FileGameLoader.Load("GameData\\1.txt");
             var cells = stringCells.ParsingCells();
 
-             var game = new GameDto(cells, true, true, 8, 9, Guid.Empty, false, 0);
+            GamesRepo.CurrentGame = new TestData(cells);
 
-            return new ObjectResult(game);
+            return new ObjectResult(GamesRepo.CurrentGame.GameField);
         }
     }
 }

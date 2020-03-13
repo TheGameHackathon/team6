@@ -10,17 +10,9 @@ namespace thegame.Services
 
         public GameDto GameField { get; private set; }
 
-        public TestData()
+        public TestData(CellDto[] cells)
         {
-            var testCells = new[]
-            {
-                new CellDto("1", new Vec(2, 4), "color1", "", 0),
-                new CellDto("2", new Vec(5, 4), "color1", "", 0),
-                new CellDto("3", new Vec(3, 1), "color2", "", 20),
-                new CellDto("4", new Vec(1, 0), "color2", "", 20),
-                new CellDto("5", new Vec(1, 1), "player", "☺", 10),
-            };
-            GameField = new GameDto(testCells, true, true, WIDTH, HEIGHT, Guid.Empty, false, 0);
+            GameField = new GameDto(cells, true, true, WIDTH, HEIGHT, Guid.Empty, false, 0);
         }
 
         public void MovePlayer(Vec movement)
