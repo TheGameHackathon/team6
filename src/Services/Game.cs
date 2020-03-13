@@ -17,17 +17,8 @@ namespace thegame.Services
 
         public void MovePlayer(Vec movement)
         {
-            CellDto player = GameField.GetPlayer();
-            //Vec newPosition = player.Pos + movement;
-            //if (newPosition.X >= WIDTH ||
-            //    newPosition.Y >= HEIGHT ||
-            //    newPosition.X < 0 ||
-            //    newPosition.Y < 0)
-            //{
-            //    return;
-            //}
             GameField.MovePlayer(movement);
-
+            GameField.IsFinished = GameField.IsFinished();
         }
     }
 }
