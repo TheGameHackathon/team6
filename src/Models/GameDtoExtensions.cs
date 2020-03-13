@@ -17,13 +17,17 @@ namespace thegame.Models
             return CellType.Field;
         }
 
-        public static void MovePlayer(this GameDto game, Vec destination)
+        public static CellDto GetPlayer(this GameDto game)
         {
+            return game.Cells.FirstOrDefault((CellDto cell) => cell.GetCellType() == CellType.Player);
+        }
 
-            CellDto playerCell = game.Cells.FirstOrDefault((CellDto cell) => cell.GetCellType() == CellType.Player);
+        public static void MovePlayer(this GameDto game, Vec movement)
+        {
+            CellDto playerCell = game.GetPlayer();
             if (playerCell != null)
             {
-                playerCell.Pos += destination;
+                playerCell.Pos += movement;
             }
         }
     }

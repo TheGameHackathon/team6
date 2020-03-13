@@ -11,7 +11,8 @@ namespace thegame.Controllers
         [HttpPost]
         public IActionResult Index()
         {
-            return new ObjectResult(TestData.AGameDto(new Vec(1, 1)));
+            GamesRepo.CurrentGame = new TestData();
+            return new ObjectResult(GamesRepo.CurrentGame.GameField);
         }
     }
 }

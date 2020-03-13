@@ -9,5 +9,6 @@ namespace thegame.Services
     /// </summary>
     public class GamesRepo
     {
+        public static TestData CurrentGame;
     }
 }

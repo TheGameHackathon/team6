@@ -20,9 +20,9 @@ namespace thegame.Controllers
         [HttpPost]
         public IActionResult Moves(Guid gameId, [FromBody]UserInputForMovesPost userInput)
         {
-            var game = TestData.AGameDto(moveProvider.GetMovement(userInput));
+            var game = GamesRepo.CurrentGame;
             game.MovePlayer(moveProvider.GetMovement(userInput));
-            return new ObjectResult(game);
+            return new ObjectResult(game.GameField);
         }
     }
 }
