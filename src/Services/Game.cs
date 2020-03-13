@@ -15,11 +15,8 @@ namespace thegame.Services
         public void MovePlayer(Vec movement)
         {
             GameField.MovePlayer(movement);
-            if (GameField.IsFinished())
-            {
-
-            }
             GameField.Score++;
+            GameField.IsFinished = GameField.IsFinished();
             if(GameField.IsFinished)
                 GamesRepo.AddResults(GameField.Level, GameField.Score);
         }
