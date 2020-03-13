@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="common.css">
 </head>
 <body>
-    <div class="gameContainer">
+    <div class="gameContainer sokoban">
         <div class="scoreContainer"></div>
         <table id="field" class="field"></table>
         <div class="leaderboard">
@@ -21,6 +21,10 @@
     <div class="overlay start">
         <div>
             <div class="startMessage">Select level</div>
+            <div>
+                <span>Выберите уровень:</span>
+                <select id="LevelList"></select>
+            </div>
             <div class="mainButtonContainer">
                 <button class="startButton" type="submit">START</button>
             </div>
