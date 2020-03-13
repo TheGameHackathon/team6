@@ -26,8 +26,8 @@ namespace thegame.Services
             {
                 return;
             }
+
             GameField.MovePlayer(movement);
-            
         }
     }
 }
