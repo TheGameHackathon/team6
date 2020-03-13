@@ -1,15 +1,16 @@
 ﻿using System;
 using System.IO;
+using thegame.Providers;
 
 namespace thegame.Controllers
 {
-    class FileGameLoader
+    class FileGameLoader : IGameDataLoader
     {
         private const string GAME_DATA_PATH = @"GameData";
 
-        private static string GameDataPathFormat => GAME_DATA_PATH + @"\{0}.txt";
+        private string GameDataPathFormat => GAME_DATA_PATH + @"\{0}.txt";
 
-        public static string[] Load(int level)
+        public string[] Load(int level)
         {
             var filename = GetFileNameByLevel(level);
 
@@ -22,12 +23,12 @@ namespace thegame.Controllers
             return File.ReadAllLines(filename);
         }
 
-        public static int GetLevelsAmount()
+        public int GetLevelsAmount()
         {
             return Directory.GetFiles(string.Format(GAME_DATA_PATH)).Length;
         }
 
-        private static string GetFileNameByLevel(int level)
+        private string GetFileNameByLevel(int level)
         {
             return string.Format(GameDataPathFormat, level);
         }

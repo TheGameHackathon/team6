@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <Folder Include="GameData\" />
+    <Folder Include="Interfaces\" />
   </ItemGroup>
 
   <ItemGroup>

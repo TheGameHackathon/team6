@@ -1,6 +1,7 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
 using thegame.Models;
+using thegame.Providers;
 using thegame.Services;
 
 namespace thegame.Controllers
@@ -9,10 +10,17 @@ namespace thegame.Controllers
     [Route("api/games")]
     public class GamesController : Controller
     {
-        [HttpPost]
-        public IActionResult Index(int level = 1)
+        private IGameDataLoader gameDataLoader;
+
+        public GamesController(IGameDataLoader gameDataLoader)
         {
-            var stringCells = FileGameLoader.Load(level);
+            this.gameDataLoader = gameDataLoader;
+        }
+
+        [HttpPost]
+        public IActionResult Index([FromBody] int levelNumber = 1)
+        {
+            var stringCells = gameDataLoader.Load(levelNumber);
             var cells = stringCells.ParsingCells();
 
             Game game = new Game(cells);
@@ -25,7 +33,7 @@ namespace thegame.Controllers
         [HttpGet]
         public IActionResult Levels()
         {
-            return new ObjectResult(FileGameLoader.GetLevelsAmount());
+            return new ObjectResult(gameDataLoader.GetLevelsAmount());
         }
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using thegame.Controllers;
 using thegame.Providers;
 
 namespace thegame
@@ -21,6 +22,7 @@ namespace thegame
         {
             services.AddMvc();
             services.AddSingleton<IMoveProvider, KeyboardMoveProvider>();
+            services.AddSingleton<IGameDataLoader, FileGameLoader>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
