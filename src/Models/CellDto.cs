@@ -17,6 +17,7 @@ namespace thegame.Models
         public CellDto(string id, Vec pos, string content, int zIndex)
         {
             Id = id;
+            RealId = id;
             Pos = pos;
             Content = content;
             ZIndex = zIndex;
@@ -40,6 +41,7 @@ namespace thegame.Models
                     CellType = CellType.Field;
                     BlockType = BlockType.Player;
                     Type = "player";
+                    RealId = "-1";
                     break;
                 case '*':
                     CellType = CellType.Field;
@@ -68,5 +70,6 @@ namespace thegame.Models
         public string Content;
         public BlockType BlockType;
         public CellType CellType;
+        public string RealId;
     }
 }
