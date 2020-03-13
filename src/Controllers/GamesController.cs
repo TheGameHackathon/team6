@@ -1,4 +1,7 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using thegame.Models;
 using thegame.Providers;
@@ -24,6 +27,7 @@ namespace thegame.Controllers
             var cells = stringCells.ParsingCells();
 
             Game game = new Game(cells, stringCells[0].Length, stringCells.Length);
+            
             GamesRepo.AddGame(game);
 
             return new ObjectResult(game.GameField);
