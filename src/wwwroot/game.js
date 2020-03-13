@@ -42,6 +42,7 @@ function makeMove(userInput) {
         .then(newGame => {
             game = newGame;
             updateField(game);
+            leaderBoard();
         });
 }
 
