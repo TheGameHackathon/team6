@@ -23,7 +23,7 @@ namespace thegame.Controllers
             var stringCells = gameDataLoader.Load(levelNumber);
             var cells = stringCells.ParsingCells();
 
-            Game game = new Game(cells);
+            Game game = new Game(cells, stringCells[0].Length, stringCells.Length);
             GamesRepo.AddGame(game);
 
             return new ObjectResult(game.GameField);
