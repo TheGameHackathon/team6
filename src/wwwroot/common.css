@@ -12,7 +12,7 @@
 
 .leaderboard {
     margin-top: 50px;
-    display: none; /* change to none → block when leaderboard will be implemented */
+    color: white;
 }
 
 .leaderboard-table {

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace thegame.Services
 {
@@ -10,6 +11,7 @@ namespace thegame.Services
     public static class GamesRepo
     {
         private static Dictionary<Guid, Game> activeGames = new Dictionary<Guid, Game>();
+        private static Dictionary<int, int> table = new Dictionary<int, int>();
 
         public static void AddGame(Game game)
         {
@@ -28,6 +30,24 @@ namespace thegame.Services
         public static void RemoveGame(Guid id)
         {
             activeGames.Remove(id);
+        }
+
+        public static void AddResults(int level, int score)
+        {
+            if (table.ContainsKey(level))
+            {
+                if (table[level] > score)
+                    table[level] = score;
+            }
+            else
+            {
+                table.Add(level, score);
+            }
+        }
+
+        public static Dictionary<int, int> GetTable()
+        {
+            return table;
         }
     }
 }
