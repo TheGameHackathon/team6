@@ -10,6 +10,7 @@ namespace thegame.Models
 {
     public static class Extensions
     {
+        private static int next = 10000;
         public static CellDto GetPlayer(this GameDto game)
         {
             return game.Cells.FirstOrDefault(cell => cell.BlockType == BlockType.Player);
@@ -47,7 +48,7 @@ namespace thegame.Models
                             toCell.UpdateBlockType(BlockType.Player);
                             fromCell.UpdateBlockType(BlockType.Empty);
                             toCell.Id = fromCell.Id;
-                            fromCell.Id = fromCell.RealId;
+                            fromCell.Id = (next++).ToString();
                             break;
                         case BlockType.Box:
                             Vec nextPosition = newPosition + movement;
@@ -59,7 +60,7 @@ namespace thegame.Models
                                 fromCell.UpdateBlockType(BlockType.Empty);
                                 nextCell.Id = toCell.Id;
                                 toCell.Id = fromCell.Id;
-                                fromCell.Id = fromCell.RealId;
+                                fromCell.Id = (next++).ToString();
                             }
                             break;
                     }
