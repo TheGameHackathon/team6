@@ -5,7 +5,7 @@ namespace thegame.Services
 {
     public class Game
     {
-        public GameDto GameField { get; }
+        public GameDto GameField { get; set; }
 
         public Game(CellDto[] cells, int width, int height)
         {
@@ -15,7 +15,10 @@ namespace thegame.Services
         public void MovePlayer(Vec movement)
         {
             GameField.MovePlayer(movement);
-            GameField.IsFinished = GameField.IsFinished();
+            if (GameField.IsFinished())
+            {
+
+            }
             GameField.Score++;
         }
     }
