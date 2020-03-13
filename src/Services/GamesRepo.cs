@@ -9,14 +9,14 @@ namespace thegame.Services
     /// </summary>
     public static class GamesRepo
     {
-        private static Dictionary<Guid, TestData> activeGames = new Dictionary<Guid, TestData>();
+        private static Dictionary<Guid, Game> activeGames = new Dictionary<Guid, Game>();
 
-        public static void AddGame(TestData game)
+        public static void AddGame(Game game)
         {
             activeGames.Add(game.GameField.Id, game);
         }
 
-        public static TestData GetGame(Guid id)
+        public static Game GetGame(Guid id)
         {
             if (!activeGames.ContainsKey(id))
             {

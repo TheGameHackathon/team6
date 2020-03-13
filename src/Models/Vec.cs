@@ -14,5 +14,15 @@ namespace thegame.Models
         {
             return new Vec(first.X + second.X, first.Y + second.Y);
         }
+
+        public static bool operator ==(Vec first, Vec second)
+        {
+            return first.X == second.X && first.Y == second.Y;
+        }
+
+        public static bool operator !=(Vec first, Vec second)
+        {
+            return !(first == second);
+        }
     }
 }

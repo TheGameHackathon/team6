@@ -15,7 +15,7 @@ namespace thegame.Controllers
             var stringCells = FileGameLoader.Load("GameData\\1.txt");
             var cells = stringCells.ParsingCells();
 
-            TestData game = new TestData(cells);
+            Game game = new Game(cells);
             GamesRepo.AddGame(game);
 
             return new ObjectResult(game.GameField);

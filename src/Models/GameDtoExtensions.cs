@@ -25,12 +25,50 @@ namespace thegame.Models
             return game.Cells.FirstOrDefault((CellDto cell) => cell.GetBlockType() == BlockType.Player);
         }
 
+        public static CellDto GetCellByPosition(this GameDto game, Vec position)
+        {
+            return game.Cells.FirstOrDefault((CellDto cell) => cell.Pos == position);
+        }
+
+        public static void UpdateBlockType(this CellDto cell, BlockType newType)
+        {
+            cell.BlockType = newType;
+            cell.Type = newType == BlockType.Empty ? 
+                cell.CellType.ToString().ToLower() :
+                cell.BlockType.ToString().ToLower();
+            if (cell.CellType == CellType.Target && cell.BlockType == BlockType.Box)
+            {
+                cell.Type = "boxOnTarget";
+            }
+        }
+
         public static void MovePlayer(this GameDto game, Vec movement)
         {
-            CellDto playerCell = game.GetPlayer();
-            if (playerCell != null)
+            CellDto fromCell = game.GetPlayer();
+            if (fromCell != null)
             {
-                playerCell.Pos += movement;
+                Vec newPosition = fromCell.Pos + movement;
+                CellDto toCell = game.GetCellByPosition(newPosition);
+                if (toCell != null)
+                {
+                    switch (toCell.BlockType)
+                    {
+                        case BlockType.Empty:
+                            toCell.UpdateBlockType(BlockType.Player);
+                            fromCell.UpdateBlockType(BlockType.Empty);
+                            break;
+                        case BlockType.Box:
+                            Vec nextPosition = newPosition + movement;
+                            CellDto nextCell = game.GetCellByPosition(nextPosition);
+                            if (nextCell != null && nextCell.BlockType == BlockType.Empty)
+                            {
+                                nextCell.UpdateBlockType(BlockType.Box);
+                                toCell.UpdateBlockType(BlockType.Player);
+                                fromCell.UpdateBlockType(BlockType.Empty);
+                            }
+                            break;
+                    }
+                }
             }
         }
     }

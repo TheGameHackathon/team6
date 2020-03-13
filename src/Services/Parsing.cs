@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 using thegame.Models;
 
 namespace thegame.Services
@@ -18,13 +19,12 @@ namespace thegame.Services
             var width = stringCells[0].Length;
 
             var cells = new CellDto[height * width];
-            var index = 0;
-            for (var i = 0; i < stringCells.Length; i++)
+            for (var i = 0; i < height; i++)
             {
-                for (var j = 0; j < stringCells[i].Length; j++)
+                for (var j = 0; j < width; j++)
                 {
-                    cells[index] = CheckCell(stringCells[i][j], i + j, j, i);
-                    index++;
+                    var index = i * width + j;
+                    cells[index] = CheckCell(stringCells[i][j], index, j, i);
                 }
             }
 
