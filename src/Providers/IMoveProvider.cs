@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using thegame.Models;
+﻿using thegame.Models;
 
 namespace thegame.Providers
 {
