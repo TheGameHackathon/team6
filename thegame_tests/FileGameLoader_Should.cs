@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using FluentAssertions;
 
-namespace thegame.Tests
+namespace thegame_tests
 {
     [TestFixture]
     class FileGameLoader_Should
