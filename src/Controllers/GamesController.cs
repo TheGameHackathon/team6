@@ -13,9 +13,10 @@ namespace thegame.Controllers
         private IGameDataLoader gameDataLoader;
         private IParsingCellsService parsingService;
 
-        public GamesController(IGameDataLoader gameDataLoader)
+        public GamesController(IGameDataLoader gameDataLoader, IParsingCellsService parsingService)
         {
             this.gameDataLoader = gameDataLoader;
+            this.parsingService = parsingService;
         }
 
         [HttpPost]
