@@ -4,6 +4,7 @@ using thegame.Services;
 
 namespace thegame.Controllers
 {
+    //GAMES CONTROLLER
     [Route("api/games")]
     public class GamesController : Controller
     {
