@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Razor.Internal;
 using thegame.Enums;
 using thegame.wwwroot.Enums;
 
@@ -45,6 +46,8 @@ namespace thegame.Models
                         case BlockType.Empty:
                             toCell.UpdateBlockType(BlockType.Player);
                             fromCell.UpdateBlockType(BlockType.Empty);
+                            toCell.Id = fromCell.Id;
+                            fromCell.Id = fromCell.RealId;
                             break;
                         case BlockType.Box:
                             Vec nextPosition = newPosition + movement;
@@ -54,6 +57,9 @@ namespace thegame.Models
                                 nextCell.UpdateBlockType(BlockType.Box);
                                 toCell.UpdateBlockType(BlockType.Player);
                                 fromCell.UpdateBlockType(BlockType.Empty);
+                                nextCell.Id = toCell.Id;
+                                toCell.Id = fromCell.Id;
+                                fromCell.Id = fromCell.RealId;
                             }
                             break;
                     }

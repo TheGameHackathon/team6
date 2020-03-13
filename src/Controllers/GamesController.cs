@@ -12,10 +12,10 @@ namespace thegame.Controllers
         [HttpPost]
         public IActionResult Index()
         {
-            var stringCells = FileGameLoader.Load("GameData\\1.txt");
+            var stringCells = FileGameLoader.Load("GameData\\2.txt");
             var cells = stringCells.ParsingCells();
 
-            Game game = new Game(cells);
+            Game game = new Game(cells, stringCells[0].Length, stringCells.Length);
             GamesRepo.AddGame(game);
 
             return new ObjectResult(game.GameField);
