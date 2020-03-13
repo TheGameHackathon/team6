@@ -6,7 +6,7 @@ namespace thegame.Services
     public static class Parsing
     {
 
-        public static CellDto[,] ParsingCells(this string[] stringCells)
+        public static CellDto[] ParsingCells(this string[] stringCells)
         {
             if(stringCells == null)
                 throw  new NullReferenceException(nameof(stringCells));
@@ -17,13 +17,14 @@ namespace thegame.Services
             var height = stringCells.Length;
             var width = stringCells[0].Length;
 
-            var cells = new CellDto[height, width];
-
+            var cells = new CellDto[height * width];
+            var index = 0;
             for (var i = 0; i < stringCells.Length; i++)
             {
                 for (var j = 0; j < stringCells[i].Length; j++)
                 {
-                    cells[i, j] = CheckCell(stringCells[i][j], i + j, i, j);
+                    cells[index] = CheckCell(stringCells[i][j], i + j, j, i);
+                    index++;
                 }
             }
 

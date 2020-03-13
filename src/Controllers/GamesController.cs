@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Mvc;
 using thegame.Models;
 using thegame.Services;
@@ -11,7 +12,12 @@ namespace thegame.Controllers
         [HttpPost]
         public IActionResult Index()
         {
-            return new ObjectResult(TestData.AGameDto(new Vec(1, 1)));
+            var stringCells = FileGameLoader.Load("GameData\\1.txt");
+            var cells = stringCells.ParsingCells();
+
+             var game = new GameDto(cells, true, true, 8, 9, Guid.Empty, false, 0);
+
+            return new ObjectResult(game);
         }
     }
 }
