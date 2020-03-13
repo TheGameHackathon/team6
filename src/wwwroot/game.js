@@ -14,9 +14,15 @@ function handleApiErrors(result) {
     return result.json();
 }
 
-async function startGame() {
-    game = await fetch("/api/games", { method: "POST" })
-        .then(handleApiErrors);
+async function startGame(levelNumber) {
+    game = await fetch("/api/games/",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(levelNumber)
+        }).then(handleApiErrors);
     window.history.replaceState(game.id, "The Game", "/" + game.id);
     renderField(game);
 }
@@ -142,12 +148,34 @@ function onCellClick(e) {
     makeMove({ clickedPos: { x, y } });
 }
 
+
+
+async function initLevelsCount() {
+    fetch(`/api/games/levels`,
+            {
+                method: "GET"
+            })
+        .then(handleApiErrors)
+        .then(countLevels => {
+            var selectList = document.getElementById("LevelList");
+            for (var i = 1; i <= countLevels; i++) {
+                var option = document.createElement("option");
+                option.value = i;
+                option.text = i;
+                selectList.appendChild(option);
+            }
+        });
+}
+
 function initializePage() {
     const gameId = window.location.pathname.substring(1);
+    initLevelsCount();
     // use gameId if you want
     startButton.addEventListener("click", e => {
         startgameOverlay.classList.toggle("hidden", true);
-        startGame();
+        var selectElement = document.getElementById("LevelList");
+        var levelNumber = selectElement.options[selectElement.selectedIndex].value;
+        startGame(levelNumber);
     });
     addKeyboardListener();
     addResizeListener();
