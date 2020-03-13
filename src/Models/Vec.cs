@@ -10,5 +10,9 @@ namespace thegame.Models
 
         public readonly int X, Y;
 
+        public static Vec operator +(Vec first, Vec second)
+        {
+            return new Vec(first.X + second.X, first.Y + second.Y);
+        }
     }
 }
