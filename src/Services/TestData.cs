@@ -5,8 +5,8 @@ namespace thegame.Services
 {
     public class TestData
     {
-        private const int HEIGHT = 8;
-        private const int WIDTH = 10;
+        private const int HEIGHT = 9;
+        private const int WIDTH = 8;
 
         public GameDto GameField { get; }
 
