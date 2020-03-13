@@ -6,6 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="Enums\CellType.cs" />
+    <Content Include="Enums\KeyPress.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.5" />
   </ItemGroup>
 
