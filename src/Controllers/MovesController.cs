@@ -39,7 +39,7 @@ public class MovesController : Controller
         {
             gameUiEventHandler.ChangeGameState(userInput.ClickedPos);
         }
-        
+
         return Ok(game);
     }
 }
