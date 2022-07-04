@@ -6,18 +6,19 @@ using thegame.Models.Dto;
 
 namespace thegame.Services;
 
-public class StateService
+public class GameState
 {
     public HashSet<VectorDto> stashes = new HashSet<VectorDto>();
     public Dictionary<VectorDto, CellDto> map = new Dictionary<VectorDto, CellDto>();
     public CellDto[] entities = new CellDto[0];
     public CellDto[] Entities => entities.Select(c => c.Type == "box" ? GetUpdatedBox(c) : c).ToArray();
     public CellDto player = null;
+    public Guid gameId = Guid.Empty;
 
 
-    public StateService()
+    public GameState(Guid gameId)
     {
-
+        this.gameId = gameId;
     }
 
     public void LoadMap(CellDto[] entities)
@@ -30,13 +31,18 @@ public class StateService
 
     public GameDto AGameDto(VectorDto movingObjectPosition)
     {
-        var width = 15;
-        var height = 15;
-
         player.Pos.X = movingObjectPosition.X;
         player.Pos.Y = movingObjectPosition.Y;
 
-        return new GameDto(Entities, true, true, width, height, Guid.Empty, CheckWin(), movingObjectPosition.Y);
+        return AGameDto();
+    }
+
+    public GameDto AGameDto()
+    {
+        var width = 15;
+        var height = 15;
+
+        return new GameDto(Entities, true, true, width, height, Guid.Empty, CheckWin(), 0);
     }
 
     private bool CheckWin()
