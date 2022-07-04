@@ -43,11 +43,11 @@ WWWWWWWW";
                 }
                 else if (cellChar == '.')
                 {
-                    cellsList.Add(new CellDto(id.ToString(), new VectorDto { X = j, Y = i }, "target", "", 0));
+                    cellsList.Add(new CellDto(id.ToString(), new VectorDto { X = j, Y = i }, "target", "", -1));
                 }
                 else if (cellChar == 'P')
                 {
-                    cellsList.Add(new CellDto(id.ToString(), new VectorDto { X = j, Y = i }, "player", "", 0));
+                    cellsList.Add(new CellDto(id.ToString(), new VectorDto { X = j, Y = i }, "player", "", 10));
                     playerPos = new VectorDto { X = j, Y = i };
                 }
                 id++;
