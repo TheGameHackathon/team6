@@ -12,17 +12,18 @@ namespace thegame.Controllers;
 [Route("api/games/{gameId}/moves")]
 public class MovesController : Controller
 {
-    private readonly GameState stateService;
-    private readonly GameUiEventHandler gameUiEventHandler;
-    public MovesController(GameState stateService)
+    private readonly GamesService gamesService;
+    public MovesController(GamesService gamesService)
     {
-        this.gameUiEventHandler = new GameUiEventHandler(stateService);
-        this.stateService = stateService;
+        this.gamesService = gamesService;
     }
     
     [HttpPost]
     public IActionResult Moves(Guid gameId, [FromBody] UserInputDto userInput)
     {
+        var gameState = gamesService.GetOrCreate(gameId);
+        var gameUiEventHandler = new GameUiEventHandler(gameState);
+        
         if (userInput == null)
         {
             return BadRequest();
@@ -33,12 +34,12 @@ public class MovesController : Controller
         {
             playerVector = gameUiEventHandler.HandleKeyPressedEvent(userInput);
         }
-        // else if (userInput.ClickedPos != null)
-        // {
-        //     playerVector = gameUiEventHandler.ChangeGameState(userInput.ClickedPos);
-        // }
+        else if (userInput.ClickedPos != null)
+        { 
+            playerVector = gameUiEventHandler.ChangeGameState(userInput.ClickedPos);
+        }
 
 
-        return Ok(stateService.AGameDto(playerVector));
+        return Ok(gameState.AGameDto(playerVector));
     }
 }

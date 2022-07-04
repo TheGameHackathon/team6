@@ -66,8 +66,8 @@ public class GameUiEventHandler
 
     public VectorDto ChangeGameState(VectorDto clickedPosition)
     {
-        if (clickedPosition != null && CanMove(clickedPosition))
-            player.Pos = clickedPosition;
+        // if (clickedPosition != null && CanMove(clickedPosition))
+        //     player.Pos = clickedPosition;
 
         return player.Pos;
     }
