@@ -11,6 +11,7 @@ public class StateService
     public HashSet<VectorDto> stashes = new HashSet<VectorDto>();
     public Dictionary<VectorDto, CellDto> map = new Dictionary<VectorDto, CellDto>();
     public CellDto[] entities = new CellDto[0];
+    public CellDto[] Entities => entities.Select(c => c.Type == "box" ? GetUpdatedBox(c) : c).ToArray();
     private CellDto player = null;
 
 
@@ -35,11 +36,23 @@ public class StateService
         player.Pos.X = movingObjectPosition.X;
         player.Pos.Y = movingObjectPosition.Y;
 
-        return new GameDto(entities, true, true, width, height, Guid.Empty, CheckWin(), movingObjectPosition.Y);
+        return new GameDto(Entities, true, true, width, height, Guid.Empty, CheckWin(), movingObjectPosition.Y);
     }
 
-    public bool CheckWin()
+    private bool CheckWin()
     {
         return stashes.All(pos => map.ContainsKey(pos) && map[pos].Type == "box");
+    }
+
+    private CellDto GetUpdatedBox(CellDto box)
+    {
+        var resBox = new CellDto(box.Id, box.Pos, box.Type, box.Content, box.ZIndex);
+
+        if (stashes.Contains(box.Pos) && box.Type == "box")
+        {
+            resBox.Type = "boxOnTarget";
+        }
+
+        return resBox;
     }
 }
