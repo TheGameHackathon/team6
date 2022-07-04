@@ -8,6 +8,7 @@ namespace thegame.Services;
 
 public class GameState
 {
+    public int Score = 0;
     public HashSet<VectorDto> stashes = new HashSet<VectorDto>();
     public Dictionary<VectorDto, CellDto> map = new Dictionary<VectorDto, CellDto>();
     public CellDto[] entities = new CellDto[0];
@@ -42,7 +43,7 @@ public class GameState
         var width = 15;
         var height = 15;
 
-        return new GameDto(Entities, true, true, width, height, gameId, CheckWin(), 0);
+        return new GameDto(Entities, true, true, width, height, gameId, CheckWin(), Score);
     }
 
     private bool CheckWin()

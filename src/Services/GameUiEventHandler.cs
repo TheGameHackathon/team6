@@ -87,12 +87,16 @@ public class GameUiEventHandler
 
                  player.Pos.X += deltaX;
                  player.Pos.Y += deltaY;
+
+                 stateService.Score += 1;
             }
         }
         else if (CanMove(potentialPos))
         {
             player.Pos.X += deltaX;
             player.Pos.Y += deltaY;
+            
+            stateService.Score -= 1;
         }
     }
 
