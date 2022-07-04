@@ -12,15 +12,12 @@ namespace thegame.Controllers;
 [Route("api/games/{gameId}/moves")]
 public class MovesController : Controller
 {
-
-    private readonly GameDto game;
-    private readonly StateService state;
+    private readonly StateService stateService;
     private readonly GameUiEventHandler gameUiEventHandler;
-    public MovesController(GameDto game, GameUiEventHandler gameUiEventHandler, StateService state)
+    public MovesController(StateService stateService)
     {
-        this.game = game;
-        this.gameUiEventHandler = gameUiEventHandler;
-        this.state = state;
+        this.gameUiEventHandler = new GameUiEventHandler(stateService);
+        this.stateService = stateService;
     }
     
     [HttpPost]
@@ -31,15 +28,16 @@ public class MovesController : Controller
             return BadRequest();
         }
 
+        var playerVector = new VectorDto() {X = 1, Y = 1};
         if (Enum.IsDefined(typeof(GameUiEventHandler.ArrowKeys), userInput.KeyPressed))
         {
-            gameUiEventHandler.HandleKeyPressedEvent(userInput);
+            playerVector = gameUiEventHandler.HandleKeyPressedEvent(userInput);
         }
         else if (userInput.ClickedPos != null)
         {
-            gameUiEventHandler.ChangeGameState(userInput.ClickedPos);
+            playerVector = gameUiEventHandler.ChangeGameState(userInput.ClickedPos);
         }
         
-        return Ok(game);
+        return Ok(stateService.AGameDto(playerVector));
     }
 }
