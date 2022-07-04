@@ -31,4 +31,15 @@ public class GamesService
             return newGame;
         }
     }
+
+    public GameState GetOrNull(Guid gameId)
+    {
+        if (games.ContainsKey(gameId))
+        {
+            return games[gameId];
+        }
+
+        return null;
+
+    }
 }

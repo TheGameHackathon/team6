@@ -15,10 +15,12 @@ function handleApiErrors(result) {
     return result.json();
 }
 
-async function startGame() {
+async function startGame(isView) {
     game = await fetch(`/api/games/${level}`, { method: "POST" })
         .then(handleApiErrors);
-    window.history.replaceState(game.id, "The Game", "/" + game.id);
+    if (!isView) {
+        window.history.replaceState(game.id, "The Game", "/" + game.id);
+    }
     renderField(game);
 }
 
@@ -147,15 +149,54 @@ function onCellClick(e) {
 }
 
 function initializePage() {
+    console.log('INIT');
     const gameId = window.location.pathname.substring(1);
-    // use gameId if you want
-    startButton.forEach(x => {x.addEventListener("click", e => {
-        level = x.textContent;
-        startgameOverlay.classList.toggle("hidden", true);
-        startGame();
-    })});
-    addKeyboardListener();
-    addResizeListener();
+
+    const isView = window.location.search.includes('view');
+    console.log(isView);
+    console.log(window.location.search);
+
+    if (isView) {
+        console.log('start upd', gameId)
+        updateView(gameId).then(gameSt => {
+            game = gameSt
+            startgameOverlay.classList.toggle("hidden", true);
+            startGame(true);
+
+            setInterval(() => {
+                updateView(gameId).then(gameState => {
+                        console.log('upd view');
+                        // startgameOverlay.classList.toggle("hidden", true);
+                        // startGame();
+                        game = gameState;
+                        updateField(game);
+                    });
+            }, 100)
+        })
+
+    } else {
+        // use gameId if you want
+        startButton.forEach(x => {x.addEventListener("click", e => {
+            level = x.textContent;
+            startgameOverlay.classList.toggle("hidden", true);
+            startGame();
+        })});
+        addKeyboardListener();
+        addResizeListener();
+    }
+
+}
+
+function updateView(id) {
+    console.log('try fetch', id);
+    return fetch(`/api/view/${id}`,
+        {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then(handleApiErrors);
 }
 
 initializePage();
