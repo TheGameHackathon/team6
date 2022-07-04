@@ -83,7 +83,8 @@ WWWWW";
                 }
                 else if (cellChar == 'X')
                 {
-                    cellsList.Add(new CellDto(id.ToString(), new VectorDto { X = j, Y = i }, "boxOnTarget", "", 0));
+                    cellsList.Add(new CellDto(id.ToString(), new VectorDto { X = j, Y = i }, "box", "", 0));
+                    cellsList.Add(new CellDto(id.ToString(), new VectorDto { X = j, Y = i }, "target", "", -1));
                 }
                 else if (cellChar == '.')
                 {
