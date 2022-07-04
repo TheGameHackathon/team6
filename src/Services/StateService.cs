@@ -12,7 +12,7 @@ public class StateService
     public Dictionary<VectorDto, CellDto> map = new Dictionary<VectorDto, CellDto>();
     public CellDto[] entities = new CellDto[0];
     public CellDto[] Entities => entities.Select(c => c.Type == "box" ? GetUpdatedBox(c) : c).ToArray();
-    private CellDto player = null;
+    public CellDto player = null;
 
 
     public StateService()

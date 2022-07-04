@@ -8,9 +8,10 @@ namespace thegame.Services;
 public class GameUiEventHandler
 {
     private readonly CellDto player;
-    public GameUiEventHandler(CellDto player)
+    //private readonly StateService stateService;
+    public GameUiEventHandler(StateService stateService)
     {
-        this.player = player;
+        this.player = stateService.player;
     }
     
     public enum ArrowKeys
@@ -21,7 +22,7 @@ public class GameUiEventHandler
         Left = 40
     }
 
-    public void HandleKeyPressedEvent(UserInputDto userInput)
+    public VectorDto HandleKeyPressedEvent(UserInputDto userInput)
     {
         var arrowKey = (ArrowKeys)userInput.KeyPressed;
         switch (arrowKey)
@@ -41,11 +42,15 @@ public class GameUiEventHandler
             default:
                 break;
         }
+
+        return player.Pos;
     }
 
-    public void ChangeGameState(VectorDto clickedPosition)
+    public VectorDto ChangeGameState(VectorDto clickedPosition)
     {
         if (clickedPosition != null)
             player.Pos = clickedPosition;
+
+        return player.Pos;
     }
 }
