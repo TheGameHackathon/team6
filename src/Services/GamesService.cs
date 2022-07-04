@@ -19,7 +19,7 @@ public class GamesService
             var newGame = new GameState(gameId);
             var field = level switch
             {
-                "Level1" => GameField.AutowinGame,
+                "Level1" => GameField.TestGameString,
                 "Level2" => GameField.GameField1,
                 "Level3" => GameField.GameField2,
                 "Level4" => GameField.GameField3,
