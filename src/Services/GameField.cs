@@ -17,6 +17,45 @@ Wx Xxx.W
 W   .  W
 WWWWWWWW";
 
+    public static readonly string GameField1 = @"
+  WWWWWWW
+  W. ...W
+WWW W W WWW
+W         W
+W    x    W
+W xxxPxxx W
+W    x    W
+W         W
+WWW W W WWW
+  W... .W
+  WWWWWWW";
+    
+    public static readonly string GameField2 = @"
+WWWWWWWW
+W   x .W
+WPWWx  W
+WWW  W W
+W      W
+W W W WW
+W     W
+W.WWWWW
+WWW";
+    public static readonly string GameField3 = @"
+WWWWWWWWWWWW
+W.W       PW
+W W   W    W
+W W W   Wx W
+W          W
+W W WWWWWWWW
+W W        W
+W WWWWWWWW W
+W        x W
+W WWWWWWWWWW
+W.W
+WWW";
+    
+    
+
     public  static  CellDto[] MakeFieldFromString(string stringField, out VectorDto playerPos)
     {
         playerPos = null;
