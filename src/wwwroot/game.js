@@ -3,8 +3,8 @@ const startMessage = document.getElementsByClassName("startMessage")[0];
 const startgameOverlay = document.getElementsByClassName("start")[0];
 const scoreElement = document.getElementsByClassName("scoreContainer")[0];
 const startButton = document.querySelectorAll("button");
-console.log(startButton)
 let game = null;
+let level = null
 let currentCells = {};
 
 function handleApiErrors(result) {
@@ -15,8 +15,8 @@ function handleApiErrors(result) {
     return result.json();
 }
 
-async function startGame(value) {
-    game = await fetch("/api/games", { method: "POST" })
+async function startGame() {
+    game = await fetch(`/api/games/${level}`, { method: "POST" })
         .then(handleApiErrors);
     window.history.replaceState(game.id, "The Game", "/" + game.id);
     renderField(game);
@@ -25,7 +25,7 @@ async function startGame(value) {
 function makeMove(userInput) {
     if (!game || game.isFinished) return;
     console.log("send userInput: %o", userInput);
-    fetch(`/api/games/${game.id}/moves`,
+    fetch(`/api/games/${level}/${game.id}/moves`,
             {
                 method: "POST",
                 headers: {
@@ -146,11 +146,10 @@ function onCellClick(e) {
 function initializePage() {
     const gameId = window.location.pathname.substring(1);
     // use gameId if you want
-    let level = 0;
     startButton.forEach(x => {x.addEventListener("click", e => {
-        level = x.value;
+        level = x.textContent;
         startgameOverlay.classList.toggle("hidden", true);
-        startGame(level);
+        startGame();
     })});
     addKeyboardListener();
     addResizeListener();

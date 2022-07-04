@@ -9,7 +9,7 @@ using thegame.Services;
 
 namespace thegame.Controllers;
 
-[Route("api/games/{gameId}/moves")]
+[Route("api/games/{level}/{gameId}/moves")]
 public class MovesController : Controller
 {
     private readonly GamesService gamesService;
