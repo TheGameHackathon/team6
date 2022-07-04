@@ -72,7 +72,7 @@ public class GameUiEventHandler
     {
         var map = stateService.map;
 
-        if (map.ContainsKey(potentialPos) && map[potentialPos].Type == "box")
+        if (map.ContainsKey(potentialPos) && (map[potentialPos].Type == "box" || map[potentialPos].Type == "boxOnTarget"))
         { 
             if (CanMoveForBox((new VectorDto(potentialPos.X + deltaX, potentialPos.Y + deltaY))))
             {
@@ -83,7 +83,7 @@ public class GameUiEventHandler
                      cellBox.Pos.X += deltaX;
                  
                  map.Remove(potentialPos);
-                 map.Add(cellBox.Pos, cellBox);
+                 map.TryAdd(cellBox.Pos, cellBox);
 
                  player.Pos.X += deltaX;
                  player.Pos.Y += deltaY;
