@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using thegame.Models;
 using thegame.Models.Dto;
 
@@ -30,20 +31,16 @@ public class GameUiEventHandler
         switch (arrowKey)
         {
             case ArrowKeys.Up:
-                if (CanMove(new VectorDto(player.Pos.X, player.Pos.Y - 1))) 
-                    player.Pos.Y -= 1;
+                MoveToBox(new VectorDto(player.Pos.X, player.Pos.Y - 1), 0, -1);
                 break;
             case ArrowKeys.Down:
-                if (CanMove(new VectorDto(player.Pos.X - 1, player.Pos.Y))) 
-                    player.Pos.X -= 1;
+                MoveToBox(new VectorDto(player.Pos.X - 1, player.Pos.Y), -1, 0);
                 break;
             case ArrowKeys.Right:
-                if (CanMove(new VectorDto(player.Pos.X + 1, player.Pos.Y))) 
-                    player.Pos.X += 1;
+                MoveToBox(new VectorDto(player.Pos.X + 1, player.Pos.Y), 1, 0);
                 break;
             case ArrowKeys.Left:
-                if (CanMove(new VectorDto(player.Pos.X, player.Pos.Y + 1))) 
-                    player.Pos.Y += 1;
+                MoveToBox(new VectorDto(player.Pos.X, player.Pos.Y + 1), 0, 1);
                 break;
             default:
                 break;
@@ -58,10 +55,45 @@ public class GameUiEventHandler
 
         if (map.ContainsKey(potentialPos))
         {
-            return map[potentialPos].Type != "wall";   
+            return map[potentialPos].Type != "wall";
         }
 
         return true;
+    }
+    
+    private bool CanMoveForBox(VectorDto potentialPos)
+    {
+        var map = stateService.map;
+
+        return !map.ContainsKey(potentialPos);
+    }
+    
+    private void MoveToBox(VectorDto potentialPos, int deltaX, int deltaY)
+    {
+        var map = stateService.map;
+
+        if (map.ContainsKey(potentialPos) && map[potentialPos].Type == "box")
+        { 
+            if (CanMoveForBox((new VectorDto(potentialPos.X + deltaX, potentialPos.Y + deltaY))))
+            {
+                var cellBox = map[potentialPos];
+                 if (deltaX == 0)
+                     cellBox.Pos.Y += deltaY;
+                 else 
+                     cellBox.Pos.X += deltaX;
+                 
+                 map.Remove(potentialPos);
+                 map.Add(cellBox.Pos, cellBox);
+
+                 player.Pos.X += deltaX;
+                 player.Pos.Y += deltaY;
+            }
+        }
+        else if (CanMove(potentialPos))
+        {
+            player.Pos.X += deltaX;
+            player.Pos.Y += deltaY;
+        }
     }
 
     public VectorDto ChangeGameState(VectorDto clickedPosition)
