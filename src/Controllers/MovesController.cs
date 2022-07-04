@@ -29,17 +29,15 @@ public class MovesController : Controller
             return BadRequest();
         }
 
-        var playerVector = new VectorDto() {X = 1, Y = 1};
         if (Enum.IsDefined(typeof(GameUiEventHandler.ArrowKeys), userInput.KeyPressed))
         {
-            playerVector = gameUiEventHandler.HandleKeyPressedEvent(userInput);
+            gameUiEventHandler.HandleKeyPressedEvent(userInput);
         }
         else if (userInput.ClickedPos != null)
         { 
-            playerVector = gameUiEventHandler.ChangeGameState(userInput.ClickedPos);
+            gameUiEventHandler.ChangeGameState(userInput.ClickedPos);
         }
-
-
-        return Ok(gameState.AGameDto(playerVector));
+        
+        return Ok(gameState.AGameDto(gameState.player.Pos));
     }
 }

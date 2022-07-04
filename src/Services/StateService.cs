@@ -42,7 +42,7 @@ public class GameState
         var width = 15;
         var height = 15;
 
-        return new GameDto(Entities, true, true, width, height, Guid.Empty, CheckWin(), 0);
+        return new GameDto(Entities, true, true, width, height, gameId, CheckWin(), 0);
     }
 
     private bool CheckWin()
