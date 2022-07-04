@@ -60,19 +60,25 @@ function renderField(game) {
 }
 
 function updateField(game) {
-    /*if (game.isFinished) {
-        level = "Level2"
-        startGame()
-    }*/
     if (game) {
         scoreElement.innerText = `Your score: ${game.score}`;
-        startMessage.innerText = `Your score: ${game.score}. Again?`;
+        if (level === "Level4" && game.isFinished)
+            startMessage.innerText = `Your score: ${game.score}. Again?`;
+        if (game.isFinished && level !== "Level4") {
+            for (let i = 1; i < startButton.length; i++) {
+                console.log(startButton[i])
+                if (startButton[i - 1].textContent === level) {
+                    level = startButton[i].textContent
+                    break
+                }
+            }
+            console.log(level)
+            startGame()
+        }
     }
-    setTimeout(
-        () => {
-            startgameOverlay.classList.toggle("hidden", !game.isFinished);
-        },
-        300);
+  
+    startgameOverlay.classList.toggle("hidden",  level !== "Level4" || !game.isFinished);
+    
 
     const cells = game.cells;
     const existedCells = {};
