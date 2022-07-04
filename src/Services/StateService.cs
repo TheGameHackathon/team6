@@ -22,13 +22,13 @@ public class StateService
     {
         map = entities.ToDictionary(cell => cell.Pos);
         this.entities = entities;
-        player = entities.First(c => c.Type == "color4");
+        player = entities.First(c => c.Type == "player");
     }
 
     public GameDto AGameDto(VectorDto movingObjectPosition)
     {
-        var width = 10;
-        var height = 8;
+        var width = 15;
+        var height = 15;
 
         player.Pos.X = movingObjectPosition.X;
         player.Pos.Y = movingObjectPosition.Y;

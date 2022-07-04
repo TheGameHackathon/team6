@@ -23,7 +23,7 @@ public class MovesController : Controller
     {
         var game = state.AGameDto(userInput.ClickedPos ?? new VectorDto { X = 1, Y = 1 });
         if (userInput.ClickedPos != null)
-            game.Cells.First(c => c.Type == "color4").Pos = userInput.ClickedPos;
+            game.Cells.First(c => c.Type == "player").Pos = userInput.ClickedPos;
         return Ok(game);
     }
 }
