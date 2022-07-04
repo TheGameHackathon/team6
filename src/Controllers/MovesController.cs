@@ -33,10 +33,10 @@ public class MovesController : Controller
         {
             playerVector = gameUiEventHandler.HandleKeyPressedEvent(userInput);
         }
-        else if (userInput.ClickedPos != null)
-        {
-            playerVector = gameUiEventHandler.ChangeGameState(userInput.ClickedPos);
-        }
+        // else if (userInput.ClickedPos != null)
+        // {
+        //     playerVector = gameUiEventHandler.ChangeGameState(userInput.ClickedPos);
+        // }
 
 
         return Ok(stateService.AGameDto(playerVector));
