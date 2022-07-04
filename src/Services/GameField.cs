@@ -13,7 +13,7 @@ W.Px  W
 WWW x.W
 W.WWx W
 W W . WW
-Wx Xxx.W
+Wx  xx.W
 W   .  W
 WWWWWWWW";
 
