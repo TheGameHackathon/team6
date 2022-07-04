@@ -29,8 +29,8 @@ public class StateService
 
     public GameDto AGameDto(VectorDto movingObjectPosition)
     {
-        var width = 10;
-        var height = 8;
+        var width = 15;
+        var height = 15;
 
         player.Pos.X = movingObjectPosition.X;
         player.Pos.Y = movingObjectPosition.Y;

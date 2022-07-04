@@ -85,23 +85,23 @@
 }
 
 
-.color0 {
-    background-color: blue;
+.wall {
+    background-image: url(images/bricks.png)
 }
 
-.color1 {
-    background-color: red;
+.player {
+    background-image: url(images/unicorn.svg)
 }
 
-.color2 {
-    background-color: green;
+.box {
+    background-image: url(images/package.svg)
 }
 
-.color3 {
-    background-color: cyan;
+.target {
+    background-image: radial-gradient(#9000ff 0, #9000ff 15%, transparent 17%, transparent 100%)
 }
 
-.color4 {
-    background-color: magenta;
+.boxOnTarget {
+    background-image: url(images/package.svg);
+    filter: brightness(50%);
 }
-
