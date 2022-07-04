@@ -58,6 +58,10 @@ function renderField(game) {
 }
 
 function updateField(game) {
+    /*if (game.isFinished) {
+        level = "Level2"
+        startGame()
+    }*/
     if (game) {
         scoreElement.innerText = `Your score: ${game.score}`;
         startMessage.innerText = `Your score: ${game.score}. Again?`;
@@ -65,7 +69,6 @@ function updateField(game) {
     setTimeout(
         () => {
             startgameOverlay.classList.toggle("hidden", !game.isFinished);
-            //startButton.focus();
         },
         300);
 

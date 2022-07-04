@@ -42,10 +42,10 @@ W.WWWWW
 WWW";
     public static readonly string GameField3 = @"
 WWWWWWWWWWWW
-W.W       PW
-W W   W    W
-W W W   Wx W
-W          W
+W.W.   x  PW
+W W    Wx  W
+W WWW      W
+W      W   W
 W W WWWWWWWW
 W W        W
 W WWWWWWWW W
@@ -53,7 +53,12 @@ W        x W
 W WWWWWWWWWW
 W.W
 WWW";
-    
+
+    public static readonly string AutowinGame = @"
+WWWWW
+WP  W
+W X W
+WWWWW";
     
 
     public  static  CellDto[] MakeFieldFromString(string stringField, out VectorDto playerPos)
