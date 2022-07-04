@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using thegame.Models;
 using thegame.Models.Dto;
 using thegame.Services;
@@ -8,11 +9,11 @@ namespace thegame.Controllers;
 [Route("api/games")]
 public class GamesController : Controller
 {
-    private StateService state;
+    private GamesService games;
 
-    public GamesController(StateService state)
+    public GamesController(GamesService games)
     {
-        this.state = state;
+        this.games = games;
     }
 
     [HttpPost]
@@ -74,8 +75,7 @@ public class GamesController : Controller
         state.LoadMap(testCells);
         return Ok(state.AGameDto(new VectorDto { X = 3, Y = 2}));
         };*/
-        var testCells = GameField.MakeFieldFromString(GameField.TestGameString, out var playerPos);
-        state.LoadMap(testCells);
-        return Ok(state.AGameDto(playerPos));
+        var game = games.GetOrCreate(Guid.NewGuid());
+        return Ok(game.AGameDto());
     }
 }

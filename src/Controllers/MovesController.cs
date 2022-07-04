@@ -12,9 +12,9 @@ namespace thegame.Controllers;
 [Route("api/games/{gameId}/moves")]
 public class MovesController : Controller
 {
-    private readonly StateService stateService;
+    private readonly GameState stateService;
     private readonly GameUiEventHandler gameUiEventHandler;
-    public MovesController(StateService stateService)
+    public MovesController(GameState stateService)
     {
         this.gameUiEventHandler = new GameUiEventHandler(stateService);
         this.stateService = stateService;

@@ -6,8 +6,7 @@ var builder = WebApplication.CreateBuilder();
 
 builder.Services.AddMvc();
 
-builder.Services.AddSingleton<StateService>();
-builder.Services.AddSingleton<GamesRepository>();
+builder.Services.AddSingleton<GamesService>();
 
 var app = builder.Build();
 

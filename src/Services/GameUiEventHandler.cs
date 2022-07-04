@@ -9,7 +9,7 @@ public class GameUiEventHandler
 {
     private readonly CellDto player;
     //private readonly StateService stateService;
-    public GameUiEventHandler(StateService stateService)
+    public GameUiEventHandler(GameState stateService)
     {
         this.player = stateService.player;
     }
