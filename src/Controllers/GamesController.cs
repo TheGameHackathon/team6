@@ -68,6 +68,8 @@ public class GamesController : Controller
             new CellDto("46", new VectorDto {X = 4, Y = 6}, "box", "", 0),
             new CellDto("47", new VectorDto {X = 5, Y = 6}, "box", "", 0),
             new CellDto("48", new VectorDto {X = 6, Y = 6}, "box", "", 0),
+            new CellDto("49", new VectorDto {X = 7, Y = 6}, "target", "", -1),
+            new CellDto("50", new VectorDto {X = 5, Y = 7}, "target", "", -1),
         };
         state.LoadMap(testCells);
         return Ok(state.AGameDto(new VectorDto { X = 3, Y = 2}));
