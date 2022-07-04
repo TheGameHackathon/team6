@@ -16,15 +16,14 @@ public class ViewController : Controller
         this.games = games;
     }
 
-    [HttpGet("/view/{gameId}")]
-    [Produces("application/json")]
+    [HttpGet("{gameId}")]
     public IActionResult View([FromRoute] Guid gameId)
     {
         var game = games.GetOrNull(gameId);
 
         if (game == null)
         {
-            NotFound();
+            return NotFound();
         }
 
         return Ok(game.AGameDto());
