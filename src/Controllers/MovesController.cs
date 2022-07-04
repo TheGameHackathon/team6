@@ -4,11 +4,20 @@ using Microsoft.AspNetCore.Mvc;
 using thegame.Models;
 using thegame.Services;
 
+
 namespace thegame.Controllers;
 
 [Route("api/games/{gameId}/moves")]
 public class MovesController : Controller
 {
+    private readonly GameDto game;
+    private readonly GameUiEventHandler gameUiEventHandler;
+    public MovesController(GameDto game, GameUiEventHandler gameUiEventHandler)
+    {
+        this.game = game;
+        this.gameUiEventHandler = gameUiEventHandler;
+    }
+    
     [HttpPost]
     public IActionResult Moves(Guid gameId, [FromBody]UserInputDto userInput)
     {
@@ -17,14 +26,15 @@ public class MovesController : Controller
             return BadRequest();
         }
 
-        if (userInput.KeyPressed != null)
+        if (Enum.IsDefined(typeof(GameUiEventHandler.ArrowKeys), userInput.KeyPressed))
         {
-            GameUiEventHandler.HandleKeyPressedEvent(userInput);
+            gameUiEventHandler.HandleKeyPressedEvent(userInput);
         }
-        /*var game = TestData.AGameDto(userInput.ClickedPos ?? new VectorDto {X = 1, Y = 1});
-        if (userInput.ClickedPos != null)
-            game.Cells.First(c => c.Type == "color4").Pos = userInput.ClickedPos;*/
-        
-        return Ok(GameUiEventHandler.CreateGame(userInput.ClickedPos));
+        else if (userInput.ClickedPos != null)
+        {
+            gameUiEventHandler.ChangeGameState(userInput.ClickedPos);
+        }
+
+        return Ok(game);
     }
 }
