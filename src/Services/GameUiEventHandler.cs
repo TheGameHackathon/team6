@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using thegame.Models;
+using thegame.Models.Dto;
 
 namespace thegame.Services;
 

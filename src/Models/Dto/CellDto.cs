@@ -1,4 +1,6 @@
-namespace thegame.Models;
+using System.Numerics;
+
+namespace thegame.Models.Dto;
 
 public class CellDto
 {
