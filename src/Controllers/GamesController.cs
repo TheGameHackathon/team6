@@ -18,7 +18,7 @@ public class GamesController : Controller
     [HttpPost]
     public IActionResult Index()
     {
-        var testCells = new[]
+        /*var testCells = new[]
 {
             new CellDto("1", new VectorDto {X = 3, Y = 0}, "wall", "", 0),
             new CellDto("2", new VectorDto {X = 4, Y = 0}, "wall", "", 0),
@@ -70,8 +70,9 @@ public class GamesController : Controller
             new CellDto("48", new VectorDto {X = 6, Y = 6}, "box", "", 0),
             new CellDto("49", new VectorDto {X = 7, Y = 6}, "target", "", -1),
             new CellDto("50", new VectorDto {X = 5, Y = 7}, "target", "", -1),
-        };
+        };*/
+        var testCells = GameField.MakeFieldFromString(GameField.TestGameString, out var playerPos);
         state.LoadMap(testCells);
-        return Ok(state.AGameDto(new VectorDto { X = 3, Y = 2}));
+        return Ok(state.AGameDto(playerPos));
     }
 }

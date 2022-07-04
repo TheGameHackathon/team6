@@ -6,7 +6,7 @@ namespace thegame.Services;
 
 public class GameField
 {
-    public readonly string TestGameString = @"
+    public static readonly string TestGameString = @"
   WWWWW
 WWW   W
 W.Px  W
@@ -17,13 +17,14 @@ Wx Xxx.W
 W   .  W
 WWWWWWWW";
 
-    public CellDto[] MakeFieldFromString(string stringField, out VectorDto playerPos)
+    public  static  CellDto[] MakeFieldFromString(string stringField, out VectorDto playerPos)
     {
         playerPos = null;
         var cellsList = new List<CellDto>();
+        
         var id = 0;
         var rows = stringField.Split("\n");
-        for (int i = 0; i < stringField.Length; i++)
+        for (int i = 0; i < rows.Length; i++)
         {
             for (int j = 0; j < rows[i].Length; j++)
             {
