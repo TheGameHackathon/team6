@@ -20,11 +20,11 @@ public class GamesController : Controller
     {
         var testCells = new[]
 {
-            new CellDto("1", new VectorDto {X = 2, Y = 4}, "color1", "", 0),
-            new CellDto("2", new VectorDto {X = 5, Y = 4}, "color1", "", 0),
-            new CellDto("3", new VectorDto {X = 3, Y = 1}, "color2", "", 20),
-            new CellDto("4", new VectorDto {X = 1, Y = 0}, "color2", "", 20),
-            new CellDto("5", new VectorDto {X = 1, Y = 1}, "color4", "☺", 10),
+            new CellDto("1", new VectorDto {X = 2, Y = 4}, "target", "", 0),
+            new CellDto("2", new VectorDto {X = 5, Y = 4}, "wall", "", 0),
+            new CellDto("3", new VectorDto {X = 2, Y = 5}, "box", "", 20),
+            new CellDto("4", new VectorDto {X = 1, Y = 0}, "wall", "", 20),
+            new CellDto("5", new VectorDto {X = 1, Y = 1}, "player", "☺", 10),
         };
         state.LoadMap(testCells);
 

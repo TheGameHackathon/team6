@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using thegame.Models.Dto;
 
 namespace thegame.Services;
@@ -20,9 +21,10 @@ public class StateService
 
     public void LoadMap(CellDto[] entities)
     {
-        map = entities.ToDictionary(cell => cell.Pos);
+        map = entities.Where(cell => cell.Type != "target").ToDictionary(cell => cell.Pos);
         this.entities = entities;
-        player = entities.First(c => c.Type == "color4");
+        stashes = entities.Where(cell => cell.Type == "target").Select(cell => cell.Pos).ToHashSet();
+        player = entities.First(c => c.Type == "player");
     }
 
     public GameDto AGameDto(VectorDto movingObjectPosition)
@@ -33,6 +35,11 @@ public class StateService
         player.Pos.X = movingObjectPosition.X;
         player.Pos.Y = movingObjectPosition.Y;
 
-        return new GameDto(entities, true, true, width, height, Guid.Empty, movingObjectPosition.X == 0, movingObjectPosition.Y);
+        return new GameDto(entities, true, true, width, height, Guid.Empty, CheckWin(), movingObjectPosition.Y);
+    }
+
+    public bool CheckWin()
+    {
+        return stashes.All(pos => map.ContainsKey(pos) && map[pos].Type == "box");
     }
 }
