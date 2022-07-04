@@ -28,16 +28,16 @@ public class GameUiEventHandler
         switch (arrowKey)
         {
             case ArrowKeys.Up:
-                player.Pos.X += 1;
+                player.Pos.Y -= 1;
                 break;
             case ArrowKeys.Down:
                 player.Pos.X -= 1;
                 break;
             case ArrowKeys.Right:
-                player.Pos.Y += 1;
+                player.Pos.X += 1;
                 break;
             case ArrowKeys.Left:
-                player.Pos.Y -= 1;
+                player.Pos.Y += 1;
                 break;
             default:
                 break;
