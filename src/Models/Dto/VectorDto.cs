@@ -1,4 +1,4 @@
-namespace thegame.Models;
+namespace thegame.Models.Dto;
 
 public class VectorDto
 {
